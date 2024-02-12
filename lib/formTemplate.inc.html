@@ -1,0 +1,66 @@
+<div class="reportFormContainer">
+	<h1>Meldung rechtswidriger Inhalte</h1>
+	<form id="reportForm" aria-label="Formular für die Meldung rechtswidriger Inhalte">
+
+		<div class="intro">
+			Dieses Formular dient dazu, Inhalte zu melden, die Ihrer Meinung nach rechtswidrig sind. Mit Ihrer Meldung helfen Sie uns, schnell und effektiv gegen solche Inhalte vorzugehen. Nach dem Absenden der E-Mail, die über den "Meldung erstellen"-Button erzeugt wird, wird Ihre Meldung an unser Postfach für Meldungen rechtswidriger Inhalte nach Verordnung (EU) 2022/2065, Artikel 16 ("Digital Services Act") zugestellt. Sie erhalten anschließend automatisch eine Eingangsbestätigung an Ihre Absenderadresse. Sobald Ihre Meldung bearbeitet wurde, informieren wir Sie über die ergriffenen Maßnahmen. Beachten Sie bitte, dass keine Rückmeldung zu den Maßnahmen erfolgen wird, falls die Prüfung die Meldung als missbräuchlich einstuft (z.B. Spam oder anlasslose Meldung).
+		</div>
+
+		<label for="urls">URL(s) zum beanstandeten Inhalt:</label>
+		<textarea
+			type="text"
+			id="urls"
+			name="urls"
+			aria-required="true"
+			placeholder="Bitte erfassen Sie die präzise URL-Adresse(n) und ggf. weitere Angaben zur Ermittlung der rechtswidrigen Inhalte"
+		></textarea>
+		<div id="urls-error"></div>
+
+		<label for="offense">Grund der Meldung:</label>
+		<textarea
+			type="text"
+			id="offense"
+			name="type"
+			aria-required="true"
+			minlength="3"
+			placeholder="Bitte spezifizieren Sie den rechtlichen Verstoß, z.B. Urheberrechtsverletzung, Hassrede, illegale Inhalte."
+		></textarea>
+		<div id="offense-error"></div>
+
+		<label for="reason">Begründete Erläuterung der Meldung:</label>
+		<textarea
+			id="reason"
+			name="reason"
+			aria-required="true"
+			minlength="50"
+			placeholder="Bitte geben Sie eine hinreichend begründete Erläuterung, warum Sie die fraglichen Informationen als rechtswidrige Inhalte ansehen."
+		></textarea>
+		<div id="reason-error"></div>
+
+		<div class="checkbox-line">
+			<input type="checkbox" id="abuse" name="abuse">
+			<label for="abuse">Es handelt sich mutmaßlich um einen Rechtsverstoß aus dem Bereich Kindesmissbrauch (Bekämpfung des sexuellen Missbrauchs und der sexuellen Ausbeutung von Kindern sowie der Kinderpornografie, Anwendungsbereich von Richtlinie 2011/93/EU )</label>
+		</div>
+
+		<label for="fullname">Vorname und Name der meldenden Person:</label>
+		<input type="text" id="fullname" name="fullname">
+		<div id="fullname-error"></div>
+
+		<div class="email-field">
+			<label for="email">E-Mail:</label>
+			<input type="email" id="email" name="email">
+			<div>
+				Die Angabe Ihres Namens und Ihrer E-Mail-Adresse ist bei Meldungen zu mutmaßlichem Kindesmissbrauch freiwillig, wir gehen der Meldung auch nach, wenn Sie uns dise Daten nicht mitteilen. Bitte beachten Sie, dass wir Sie zu im Zusammenhang mit Ihrer Meldung getroffenen Maßnahmen nur informieren können, wenn Sie uns Ihre E-Mail-Adresse mitteilen.
+			</div>
+		</div>
+
+		<div class="checkbox-line">
+			<input type="checkbox" id="confirmation" name="confirmation" aria-required="true">
+			<label for="confirmation">Ich bin in gutem Glauben davon überzeugt, dass die in der Meldung enthaltenen Angaben und Anführungen richtig und vollständig sind.</label>
+		</div>
+		<div id="confirmation-error"></div>
+
+		<button type="submit" id="submitBtn" class="report-submit-button visually-disabled">Meldung erstellen</button>
+	</form>
+	<div id="submit-result"></div>
+</div>
