@@ -1,0 +1,12 @@
+<?php
+$config = [
+	'secretKey' => 'your_secret_key_here',
+	'recipientMail' => 'webmaster@example.com',
+	'senderMail' => 'webmaster@example.com',
+	'dsaAllowDomains' => [
+		'example.com',
+		'example.de',
+		'example.net',
+	],
+	'webserviceURL' => './sendReport.php',
+];

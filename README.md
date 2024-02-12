@@ -1,0 +1,11 @@
+# DSA Report Tool
+
+Dies ist eine Beispielimplementierung für ein Formular für Meldungen rechtswidriger Inhalte nach Verordnung (EU) 2022/2065, Artikel 16 ("Digital Services Act").
+
+Das Formular erleichtert die Eingabe der erforderlichen Informationen zur Erstellung von Meldungen. Gemäß Art. 16 Abs. 2 Buchstabe c ist die Angabe des Names und der E-Mail-Adresse im Fall von Straftaten, die Artikel 3 bis 7 der Richtlinie 2011/93/EU ("Bekämpfung des sexuellen Missbrauchs und der sexuellen Ausbeutung von Kindern sowie der Kinderpornografie") betreffen, freiwillig, allen anderen Fällen obligatorisch, um missbräuchlichen Meldungen und Spam vorzubeugen. In den Fällen, in denen eine E-Mail-Adresse angegeben wurde, erfolgt die Meldung durch Erstellung einer E-Mail im voreingestellten E-Mail-Client des Nutzer-Geräts, wenn die E-Mail-Adresse nicht angegeben wurde, erfolgt eine Meldung über eine serverseitig generierte E-Mail. Der Webservice zur Erstellung der E-Mail benötigt PHP auf dem Webserver und eine korrekt konfigurierte PHP mail()-Funktion.
+
+Zur Inbetriebnahme muss das Project in einem öffentlich verfügbaren Verzeichnis auf dem Webserver ausgechecked werden, anschließend muss die Datei `config.inc.php.example` zu `config.inc.php` kopiert oder umbenannt und angepasst werden.
+
+Die Vorgaben der Verordnung (EU) 2022/2065 wurden nach bestem Wissen und Gewissen umgesetzt. Die Umsetzung erhebt allerdings keinen Anspruch auf Rechtssicherheit, jegliche Haftung bei Übernahme dieser Umsetzung ist hiermit ausdrücklich ausgeschlossen.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
