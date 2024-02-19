@@ -170,7 +170,7 @@ const DSAReportSetup = function(
 				let body = compileMessageBody();
 
 				// check if we need to compile an e-mail for the client or use the webservice
-				const useEmail = (!abuseCheckbox.checked || emailRegex.test(emailInput));
+				const useEmail = (!abuseCheckbox.checked || emailRegex.test(emailInput.value));
 
 				if(useEmail){
 					subject = encodeURIComponent(subject);

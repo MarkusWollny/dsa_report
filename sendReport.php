@@ -9,6 +9,17 @@
 	require_once __DIR__ . '/lib/DSAReport.php';
 	$DSAReport = new DSAReport();
 
+	// Validate the origin of the request
+	$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+	if (!$DSAReport->validateOrigin($origin)) {
+		echo json_encode(['success' => false, 'message' => 'Aufruf von nicht autorisierter Seite.']);
+		exit;
+	} else {
+		header("Access-Control-Allow-Origin: $origin");
+		header('Access-Control-Allow-Methods: POST, OPTIONS');
+		header('Access-Control-Allow-Headers: Content-Type');
+	}
+
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		// Get JSON as a string
 		$json_str = file_get_contents('php://input');
@@ -20,17 +31,6 @@
 		if (!$DSAReport->validateCSRFToken($json_obj->token)) {
 			echo json_encode(['success' => false, 'message' => 'Token ungültig oder abgelaufen']);
 			exit;
-		}
-
-		// Validate the origin of the request
-		$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-		if (!$DSAReport->validateOrigin($origin)) {
-			echo json_encode(['success' => false, 'message' => 'Aufruf von nicht autorisierter Seite.']);
-			exit;
-		} else {
-			header("Access-Control-Allow-Origin: $origin");
-			header('Access-Control-Allow-Methods: POST, OPTIONS');
-			header('Access-Control-Allow-Headers: Content-Type');
 		}
 	
 		// Process the request based on the "method" value
@@ -46,8 +46,10 @@
 		}
 	} else {
 		// Not a POST request
-		http_response_code(405); // Method Not Allowed
-		echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+		if ($_SERVER['REQUEST_METHOD'] !== 'OPTIONS'){
+			http_response_code(405); // Method Not Allowed
+			echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+		}
 	}
 	
 	?>
